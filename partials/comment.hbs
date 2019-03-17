@@ -1,42 +1,20 @@
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 <div id="comment">
     <h2 class="comment-header">评论</h2>
-    <div id="comment-box"></div>
+    <div id="gitalk-container"></div>
 </div>
 
 <script>
-    var lc_appId, lc_appKey;
-    if (typeof show_valine == 'undefined') {
-        var show_valine = true;
-    }
-    if (show_valine && lc_appId && lc_appKey) {
-        new Valine({
-            el: '#comment-box' ,
-            notify:false, 
-            verify:false, 
-            appId: lc_appId,
-            appKey: lc_appKey,
-            placeholder: '添加一条评论...',
-            path:window.location.pathname, 
-            avatar:'retro',
-            guest_info: ['nick','mail']
-        });
-    }
-    else {
-        $("#comment").hide();
-    }
-
-    $("#comment-box .veditor").focus(function(){
-        $("#comment-box .vnick").addClass("display");
-        $("#comment-box .vcontrol").addClass("display");
-        $("#comment-box .veditor").css("min-height", "7em");
-    });
-
-    $("#comment-box .vnick").focus(function(){
-        $("#comment-box .vmail").addClass("display");
-        $("#comment-box .vlink").addClass("display");
-    });
+   var gitalk = new Gitalk({
+   clientID: 'aa83ade4af102df3ef0e',
+   clientSecret: 'c81db47771dc0a053bdb2f57ddb924dfe57edbdd',
+   repo: 'blog_talk',
+   owner: '1314cc',
+   admin: ['1314cc'],
+   distractionFreeMode: false  // Facebook-like distraction free mode
+})
+gitalk.render('gitalk-container')
     
 </script>
